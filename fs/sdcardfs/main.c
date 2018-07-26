@@ -297,7 +297,7 @@ static int sdcardfs_read_super(struct vfsmount *mnt, struct super_block *sb,
 
 	sb->s_stack_depth = lower_sb->s_stack_depth + 1;
 	if (sb->s_stack_depth > FILESYSTEM_MAX_STACK_DEPTH) {
-		printk(KERN_ERR "sdcardfs: maximum fs stacking depth exceeded\n");
+		pr_err("sdcardfs: maximum fs stacking depth exceeded\n");
 		err = -EINVAL;
 		goto out_sput;
 	}
